@@ -10,9 +10,19 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var view_values: UIView!
+    @IBOutlet weak var label_currentSteps: UILabel!
+    @IBOutlet weak var label_stepsHighscore: UILabel!
+    @IBOutlet weak var label_stepsAverage: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setUpLayout()
+        
+    }
+    
+    func setUpLayout() {
+        view_values.layer.cornerRadius = 20
     }
 
     override func didReceiveMemoryWarning() {
