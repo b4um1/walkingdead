@@ -16,6 +16,7 @@
 		E815FCB81C1193010066C948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E815FCB61C1193010066C948 /* LaunchScreen.storyboard */; };
 		E815FCC31C1193020066C948 /* TheWalkingDeadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCC21C1193020066C948 /* TheWalkingDeadTests.swift */; };
 		E815FCCE1C1193020066C948 /* TheWalkingDeadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCCD1C1193020066C948 /* TheWalkingDeadUITests.swift */; };
+		E8B432BA1C11B095005D8FCD /* UserRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B432B91C11B095005D8FCD /* UserRegisterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E815FCC91C1193020066C948 /* TheWalkingDeadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheWalkingDeadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E815FCCD1C1193020066C948 /* TheWalkingDeadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheWalkingDeadUITests.swift; sourceTree = "<group>"; };
 		E815FCCF1C1193020066C948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8B432B91C11B095005D8FCD /* UserRegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				E815FCAC1C1193010066C948 /* MainViewController.swift */,
+				E8B432B91C11B095005D8FCD /* UserRegisterController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				E815FCB31C1193010066C948 /* TheWalkingDead.xcdatamodeld in Sources */,
 				E815FCAD1C1193010066C948 /* MainViewController.swift in Sources */,
 				E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */,
+				E8B432BA1C11B095005D8FCD /* UserRegisterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
