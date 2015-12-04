@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCAA1C1193010066C948 /* AppDelegate.swift */; };
-		E815FCAD1C1193010066C948 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCAC1C1193010066C948 /* ViewController.swift */; };
+		E815FCAD1C1193010066C948 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCAC1C1193010066C948 /* MainViewController.swift */; };
 		E815FCB01C1193010066C948 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E815FCAE1C1193010066C948 /* Main.storyboard */; };
 		E815FCB31C1193010066C948 /* TheWalkingDead.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E815FCB11C1193010066C948 /* TheWalkingDead.xcdatamodeld */; };
 		E815FCB51C1193010066C948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E815FCB41C1193010066C948 /* Assets.xcassets */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		E815FCA71C1193010066C948 /* TheWalkingDead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWalkingDead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E815FCAA1C1193010066C948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E815FCAC1C1193010066C948 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E815FCAC1C1193010066C948 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E815FCAF1C1193010066C948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E815FCB21C1193010066C948 /* TheWalkingDead.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheWalkingDead.xcdatamodel; sourceTree = "<group>"; };
 		E815FCB41C1193010066C948 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,12 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				E815FCAA1C1193010066C948 /* AppDelegate.swift */,
-				E815FCAC1C1193010066C948 /* ViewController.swift */,
-				E815FCAE1C1193010066C948 /* Main.storyboard */,
+				E8447C9A1C1199C20075EF00 /* ViewController */,
+				E8447C9C1C1199FF0075EF00 /* Storyboards */,
+				E8447C9D1C119A260075EF00 /* PersistentData */,
 				E815FCB41C1193010066C948 /* Assets.xcassets */,
-				E815FCB61C1193010066C948 /* LaunchScreen.storyboard */,
 				E815FCB91C1193010066C948 /* Info.plist */,
-				E815FCB11C1193010066C948 /* TheWalkingDead.xcdatamodeld */,
 			);
 			path = TheWalkingDead;
 			sourceTree = "<group>";
@@ -126,6 +125,31 @@
 				E815FCCF1C1193020066C948 /* Info.plist */,
 			);
 			path = TheWalkingDeadUITests;
+			sourceTree = "<group>";
+		};
+		E8447C9A1C1199C20075EF00 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E815FCAC1C1193010066C948 /* MainViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E8447C9C1C1199FF0075EF00 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E815FCB61C1193010066C948 /* LaunchScreen.storyboard */,
+				E815FCAE1C1193010066C948 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		E8447C9D1C119A260075EF00 /* PersistentData */ = {
+			isa = PBXGroup;
+			children = (
+				E815FCB11C1193010066C948 /* TheWalkingDead.xcdatamodeld */,
+			);
+			name = PersistentData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E815FCB31C1193010066C948 /* TheWalkingDead.xcdatamodeld in Sources */,
-				E815FCAD1C1193010066C948 /* ViewController.swift in Sources */,
+				E815FCAD1C1193010066C948 /* MainViewController.swift in Sources */,
 				E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +510,7 @@
 				E815FCD41C1193020066C948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E815FCD51C1193020066C948 /* Build configuration list for PBXNativeTarget "TheWalkingDeadTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +519,7 @@
 				E815FCD71C1193020066C948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E815FCD81C1193020066C948 /* Build configuration list for PBXNativeTarget "TheWalkingDeadUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +528,7 @@
 				E815FCDA1C1193020066C948 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
