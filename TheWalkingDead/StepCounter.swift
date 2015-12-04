@@ -38,7 +38,7 @@ class StepCounter {
                     // start magic
                     let sum = sqrt((x * x) + (y * y) + (z * z))
                     
-                    if sum > 1.3 {
+                    if sum > 1.35 {
                         self.counter++
                         self.stepDelegate?.onStepMade(self.counter)
                         print("step \(self.counter)")
