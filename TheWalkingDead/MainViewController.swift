@@ -29,7 +29,9 @@ class MainViewController: UIViewController, StepDelegate {
         addCircleView()
     }
     
+    
     func setUpLayout() {
+        navigationController?.navigationBarHidden = true
         view_values.layer.cornerRadius = 20
     }
 
