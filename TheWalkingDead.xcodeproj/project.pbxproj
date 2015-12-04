@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CEE00F131C119E8D00C87D8D /* StepCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE00F121C119E8D00C87D8D /* StepCounter.swift */; };
+		CEE00F151C11B2A800C87D8D /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE00F141C11B2A800C87D8D /* CircleView.swift */; };
 		E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCAA1C1193010066C948 /* AppDelegate.swift */; };
 		E815FCAD1C1193010066C948 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCAC1C1193010066C948 /* MainViewController.swift */; };
 		E815FCB01C1193010066C948 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E815FCAE1C1193010066C948 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		CEE00F121C119E8D00C87D8D /* StepCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCounter.swift; sourceTree = "<group>"; };
+		CEE00F141C11B2A800C87D8D /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		E815FCA71C1193010066C948 /* TheWalkingDead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWalkingDead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E815FCAA1C1193010066C948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E815FCAC1C1193010066C948 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				E815FCB41C1193010066C948 /* Assets.xcassets */,
 				E815FCB91C1193010066C948 /* Info.plist */,
 				CEE00F121C119E8D00C87D8D /* StepCounter.swift */,
+				CEE00F141C11B2A800C87D8D /* CircleView.swift */,
 			);
 			path = TheWalkingDead;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE00F131C119E8D00C87D8D /* StepCounter.swift in Sources */,
+				CEE00F151C11B2A800C87D8D /* CircleView.swift in Sources */,
 				E815FCB31C1193010066C948 /* TheWalkingDead.xcdatamodeld in Sources */,
 				E815FCAD1C1193010066C948 /* MainViewController.swift in Sources */,
 				E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */,

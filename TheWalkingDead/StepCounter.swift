@@ -9,9 +9,14 @@
 import Foundation
 import CoreMotion
 
+
+protocol StepDelegate {
+    func onStepMade(counter: Int)
+}
 class StepCounter {
     
     let manager = CMMotionManager()
+    var stepDelegate: StepDelegate?
     var counter = 0
     
     init() {
@@ -33,8 +38,9 @@ class StepCounter {
                     // start magic
                     let sum = sqrt((x * x) + (y * y) + (z * z))
                     
-                    if sum > 1.2 {
+                    if sum > 1.3 {
                         self.counter++
+                        self.stepDelegate?.onStepMade(self.counter)
                         print("step \(self.counter)")
                     }
                     // end magic
