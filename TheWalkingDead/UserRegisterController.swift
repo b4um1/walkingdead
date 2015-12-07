@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class UserRegisterController: UIViewController {
 
@@ -22,7 +23,20 @@ class UserRegisterController: UIViewController {
     @IBAction func createClicked(sender: AnyObject) {
         //check entries
         
-        //if successful, then login automatically
+        SwiftSpinner.show("User will be created. ⏳")
+        var delay = 2 * Double(NSEC_PER_SEC)
+        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            SwiftSpinner.show("Successful - logging in 💪🏻🤘🏻", animated: true)
+            delay = 3 * Double(NSEC_PER_SEC)
+            time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                SwiftSpinner.hide()
+                self.performSegueWithIdentifier("login", sender: self)
+            }
+            
+        }
+
     }
     
     func setUpUI(){

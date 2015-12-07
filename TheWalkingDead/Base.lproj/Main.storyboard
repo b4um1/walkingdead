@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="qBt-h5-kGK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="qBt-h5-kGK">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the walking dead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxi-a6-h7D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="the walking dead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxi-a6-h7D">
                                 <rect key="frame" x="216.5" y="30" width="167.5" height="26.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="footsteps" translatesAutoresizingMaskIntoConstraints="NO" id="g95-rZ-1v5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="footsteps" translatesAutoresizingMaskIntoConstraints="NO" id="g95-rZ-1v5">
                                 <rect key="frame" x="20" y="66.5" width="70" height="70"/>
                                 <animations/>
                                 <constraints>
@@ -195,7 +195,6 @@
                                 </state>
                                 <connections>
                                     <action selector="createClicked:" destination="f5K-eo-MpF" eventType="touchUpInside" id="llk-2M-bry"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="gwR-Wt-1iY"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoM-gh-Mzw">
@@ -276,6 +275,7 @@
                     <connections>
                         <outlet property="button_createUser" destination="gs6-bW-8q6" id="PAg-uA-nS1"/>
                         <outlet property="datePicker" destination="HoM-gh-Mzw" id="7nx-ni-EHG"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="hYf-0e-7gc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQE-58-PFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +336,7 @@
                                         </constraints>
                                         <state key="normal" image="login"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="Ns2-Ta-ivW"/>
+                                            <action selector="loginClicked:" destination="Emo-oN-kdV" eventType="touchUpInside" id="K2a-xC-J23"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kY0-YT-Ud9" userLabel="b_login">
@@ -392,7 +392,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="b1o-Bz-CcA"/>
                     <connections>
+                        <outlet property="b_login" destination="TcL-Wb-mBB" id="qMr-m4-8on"/>
                         <outlet property="panel_buttons" destination="iRx-jY-6Vz" id="eFk-UV-OAz"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="2oW-4q-hRH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3RR-Qv-XQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,6 +430,6 @@
         <image name="user" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gwR-Wt-1iY"/>
+        <segue reference="hYf-0e-7gc"/>
     </inferredMetricsTieBreakers>
 </document>
