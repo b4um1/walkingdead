@@ -19,6 +19,7 @@
 		E815FCCE1C1193020066C948 /* TheWalkingDeadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCCD1C1193020066C948 /* TheWalkingDeadUITests.swift */; };
 		E8AC031E1C15EDFF00E535EE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AC031D1C15EDFF00E535EE /* LoginViewController.swift */; };
 		E8B432BA1C11B095005D8FCD /* UserRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B432B91C11B095005D8FCD /* UserRegisterController.swift */; };
+		FF37F0394080BC54E709D0C2 /* Pods_TheWalkingDead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814C30AA36597FD76F078AB0 /* Pods_TheWalkingDead.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05239E4CE14DF6423E162C93 /* Pods-TheWalkingDead.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWalkingDead.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheWalkingDead/Pods-TheWalkingDead.debug.xcconfig"; sourceTree = "<group>"; };
+		814C30AA36597FD76F078AB0 /* Pods_TheWalkingDead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheWalkingDead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE00F121C119E8D00C87D8D /* StepCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCounter.swift; sourceTree = "<group>"; };
 		CEE00F141C11B2A800C87D8D /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		DCF7A565777DD8356A12A58A /* Pods-TheWalkingDead.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWalkingDead.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheWalkingDead/Pods-TheWalkingDead.release.xcconfig"; sourceTree = "<group>"; };
 		E815FCA71C1193010066C948 /* TheWalkingDead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWalkingDead.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E815FCAA1C1193010066C948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E815FCAC1C1193010066C948 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF37F0394080BC54E709D0C2 /* Pods_TheWalkingDead.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +89,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17BE3B909D5ED78765CF81E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				814C30AA36597FD76F078AB0 /* Pods_TheWalkingDead.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3EC612D11012E36929142593 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05239E4CE14DF6423E162C93 /* Pods-TheWalkingDead.debug.xcconfig */,
+				DCF7A565777DD8356A12A58A /* Pods-TheWalkingDead.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E815FC9E1C1193010066C948 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +113,8 @@
 				E815FCC11C1193010066C948 /* TheWalkingDeadTests */,
 				E815FCCC1C1193020066C948 /* TheWalkingDeadUITests */,
 				E815FCA81C1193010066C948 /* Products */,
+				3EC612D11012E36929142593 /* Pods */,
+				17BE3B909D5ED78765CF81E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E815FCD21C1193020066C948 /* Build configuration list for PBXNativeTarget "TheWalkingDead" */;
 			buildPhases = (
+				72C3E7889F800FAE95BA482C /* Check Pods Manifest.lock */,
 				E815FCA31C1193010066C948 /* Sources */,
 				E815FCA41C1193010066C948 /* Frameworks */,
 				E815FCA51C1193010066C948 /* Resources */,
+				80A026EF45F040C34FB92CC7 /* Embed Pods Frameworks */,
+				8C2340CD02DDF0C01E486D30 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +324,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		72C3E7889F800FAE95BA482C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		80A026EF45F040C34FB92CC7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheWalkingDead/Pods-TheWalkingDead-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C2340CD02DDF0C01E486D30 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheWalkingDead/Pods-TheWalkingDead-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E815FCA31C1193010066C948 /* Sources */ = {
@@ -447,6 +522,7 @@
 		};
 		E815FCD31C1193020066C948 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05239E4CE14DF6423E162C93 /* Pods-TheWalkingDead.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TheWalkingDead/Info.plist;
@@ -458,6 +534,7 @@
 		};
 		E815FCD41C1193020066C948 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCF7A565777DD8356A12A58A /* Pods-TheWalkingDead.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TheWalkingDead/Info.plist;
