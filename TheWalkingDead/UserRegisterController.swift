@@ -18,9 +18,16 @@ class UserRegisterController: UIViewController {
         setUpUI()
     }
     
+    
+    @IBAction func createClicked(sender: AnyObject) {
+        //check entries
+        
+        //if successful, then login automatically
+    }
+    
     func setUpUI(){
         //hide navigation bar
-        navigationController?.navigationBarHidden = true
+        //navigationController?.navigationBarHidden = true
         
         //add border 
         button_createUser.layer.cornerRadius = button_createUser.frame.size.width/2-1
