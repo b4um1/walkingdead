@@ -8,11 +8,18 @@
 
 import UIKit
 
-class HeartrateViewController: UIViewController {
+class HeartrateViewController: UIViewController, HeartRateDelegate {
 
+    var heartRateDelegate: HeartRateDelegate?
+    var bleHandler = BLEHandler()
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        appDelegate.bleHandler!.heartRateDelegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,4 +39,7 @@ class HeartrateViewController: UIViewController {
     }
     */
 
+    func updateHeartReate(bpm: Int) {
+        print("bpm: \(bpm)")
+    }
 }

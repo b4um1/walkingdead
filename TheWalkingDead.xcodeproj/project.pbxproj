@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CEAFF6971C1971430047F69D /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF6961C1971430047F69D /* MyPageController.swift */; };
 		CEAFF6991C1977C80047F69D /* HeartrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF6981C1977C80047F69D /* HeartrateViewController.swift */; };
+		CEAFF69B1C1981F20047F69D /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF69A1C1981F20047F69D /* BLEHandler.swift */; };
 		CEE00F131C119E8D00C87D8D /* StepCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE00F121C119E8D00C87D8D /* StepCounter.swift */; };
 		CEE00F151C11B2A800C87D8D /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE00F141C11B2A800C87D8D /* CircleView.swift */; };
 		E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815FCAA1C1193010066C948 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		814C30AA36597FD76F078AB0 /* Pods_TheWalkingDead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheWalkingDead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAFF6961C1971430047F69D /* MyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
 		CEAFF6981C1977C80047F69D /* HeartrateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartrateViewController.swift; sourceTree = "<group>"; };
+		CEAFF69A1C1981F20047F69D /* BLEHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
 		CEE00F121C119E8D00C87D8D /* StepCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCounter.swift; sourceTree = "<group>"; };
 		CEE00F141C11B2A800C87D8D /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		DCF7A565777DD8356A12A58A /* Pods-TheWalkingDead.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheWalkingDead.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheWalkingDead/Pods-TheWalkingDead.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				CEE00F121C119E8D00C87D8D /* StepCounter.swift */,
 				CEE00F141C11B2A800C87D8D /* CircleView.swift */,
 				CEAFF6961C1971430047F69D /* MyPageController.swift */,
+				CEAFF69A1C1981F20047F69D /* BLEHandler.swift */,
 			);
 			path = TheWalkingDead;
 			sourceTree = "<group>";
@@ -273,6 +276,11 @@
 				TargetAttributes = {
 					E815FCA61C1193010066C948 = {
 						CreatedOnToolsVersion = 7.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					E815FCBD1C1193010066C948 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -386,6 +394,7 @@
 			files = (
 				CEAFF6971C1971430047F69D /* MyPageController.swift in Sources */,
 				CEE00F131C119E8D00C87D8D /* StepCounter.swift in Sources */,
+				CEAFF69B1C1981F20047F69D /* BLEHandler.swift in Sources */,
 				CEE00F151C11B2A800C87D8D /* CircleView.swift in Sources */,
 				CEAFF6991C1977C80047F69D /* HeartrateViewController.swift in Sources */,
 				E8AC031E1C15EDFF00E535EE /* LoginViewController.swift in Sources */,
