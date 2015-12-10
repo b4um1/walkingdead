@@ -31,7 +31,6 @@ class LoginViewController: UIViewController {
                 SwiftSpinner.hide()
                 self.performSegueWithIdentifier("login", sender: self)
             }
-
         }
     }
 }
