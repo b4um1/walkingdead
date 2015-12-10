@@ -29,7 +29,8 @@ class LoginViewController: UIViewController {
             time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
                 SwiftSpinner.hide()
-                self.performSegueWithIdentifier("login", sender: self)
+                self.navigationController!.pushViewController(self.storyboard!.instantiateViewControllerWithIdentifier("MyPageController") as UIViewController, animated: true)
+                //self.performSegueWithIdentifier("MyPageController", sender: self)
             }
         }
     }
