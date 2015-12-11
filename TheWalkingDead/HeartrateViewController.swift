@@ -10,9 +10,7 @@ import UIKit
 
 class HeartrateViewController: UIViewController, HeartRateDelegate {
 
-    var heartRateDelegate: HeartRateDelegate?
-    var bleHandler = BLEHandler()
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     
     @IBOutlet weak var panel_labels: UIView!
     @IBOutlet weak var l_currentHeartBeat: UILabel!
@@ -20,6 +18,25 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     
     @IBOutlet weak var l_avgbeats: UILabel!
     @IBOutlet weak var l_maxbeat: UILabel!
+    @IBOutlet weak var l_minbeat: UILabel!
+    
+    
+    var heartRateDelegate: HeartRateDelegate?
+    var bleHandler = BLEHandler()
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var beats = [Int]()
+    var currentbeat = 70
+    var maxBeat = 70
+    var minBeat = 70
+    let shrinkFactor = CGFloat(2.0 / 3)
+    var expandFactor: CGFloat {
+        return 1.0 / shrinkFactor
+    }
+    
+    var duration: Double {
+        return 60.0 / Double(currentbeat)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +48,11 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         // Do any additional setup after loading the view.
 
     
-    var beats = [Int]()
-    
-    var currentbeat = 86
-    let shrinkFactor = CGFloat(2.0 / 3)
-    var expandFactor: CGFloat {
-        return 1.0 / shrinkFactor
-    }
-    var duration: Double {
-        return 60.0 / Double(currentbeat)
-    }
+
     
     override func viewDidAppear(animated: Bool) {
         beat()
-        updateAverageBeats(calcAverageBeats())
+        updateAverageBeats(calcAverageBeats(0))
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +64,8 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         panel_labels.layer.cornerRadius = 20
     }
     
-    func calcAverageBeats() -> Int{
-        beats.append(80)
-        beats.append(80)
-        beats.append(80)
+    func calcAverageBeats(beat: Int) -> Int{
+        beats.append(beat)
         
         var totalsum:Int = 0
         
@@ -75,9 +81,23 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     }
     
     func updateHeartReate(bpm: Int) {
+        currentbeat = bpm
         l_currentHeartBeat.text = bpm.description
         
-        //print("bpm: \(bpm)")
+        //updateAverage
+        updateAverageBeats(calcAverageBeats(bpm))
+        
+        //check max/min
+        updateMaxMinBeat(bpm)
+    }
+    
+    func updateMaxMinBeat(beat: Int){
+        if beat > maxBeat {
+            l_maxbeat.text = NSString(format: "%d BPM", beat) as String
+        }
+        if beat < minBeat {
+            l_minbeat.text = NSString(format: "%d BPM", beat) as String
+        }
     }
     
     func beat() {
