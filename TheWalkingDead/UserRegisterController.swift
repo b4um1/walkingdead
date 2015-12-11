@@ -17,8 +17,15 @@ class UserRegisterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func createClicked(sender: AnyObject) {
         //check entries
