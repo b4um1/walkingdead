@@ -10,6 +10,7 @@
 import UIKit
 import Alamofire
 import SwiftSpinner
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -40,24 +41,27 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginClicked(sender: AnyObject) {
         SwiftSpinner.show("Try to login ...")
-        var delay = 3 * Double(NSEC_PER_SEC)
+        var delay = 1 * Double(NSEC_PER_SEC)
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
+            
             let parameters = [
                 "user":self.tf_username.text!,
                 "pass":self.tf_password.text!
             ]
-            
             var login = false
-            
+            //http post
             Alamofire.request(.POST, "http://10.29.17.241:8080/at.fhooe.mc.walkingdead/auth/login", parameters: parameters)
-                .responseString { response in
+                .responseJSON { response in
                     if response.result.isSuccess {
-                        //let json = JSON(response.result.value)
-                        SwiftSpinner.show("Login successfull 💪🏻", animated: true)
-                        login = true
-                    }else{
-                        SwiftSpinner.show("Invalid login 👎🏻", animated: true)
+                        let json = JSON(response.result.value!)
+                        print(json)
+                        if json.isEmpty == false {
+                            SwiftSpinner.show("Login successfull 💪🏻", animated: true)
+                            login = true
+                        }else{
+                             SwiftSpinner.show("Invalid login 👎🏻", animated: true)
+                        }
                     }
             }
             
