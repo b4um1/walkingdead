@@ -24,7 +24,7 @@ class MyPageController: UIViewController, UIPageViewControllerDataSource, UIGest
         
         //loadFromCoreData()
         //if refuelings.count > 2 {
-        for i in 0...1 {
+        for i in 0...2 {
             let controller = storyboard!.instantiateViewControllerWithIdentifier("PageController\(i)") 
             controllers.addObject(controller)
         }
@@ -88,6 +88,8 @@ class MyPageController: UIViewController, UIPageViewControllerDataSource, UIGest
             return nil
         } else if viewController.isKindOfClass(HeartrateViewController) {
             return controllers[0] as? UIViewController
+        } else if viewController.isKindOfClass(EnergyExpenditureViewController) {
+            return controllers[1] as? UIViewController
         }
         
         /*
@@ -109,6 +111,8 @@ class MyPageController: UIViewController, UIPageViewControllerDataSource, UIGest
         if viewController.isKindOfClass(MainViewController) {
             return controllers[1] as? UIViewController
         } else if viewController.isKindOfClass(HeartrateViewController) {
+            return controllers[2] as? UIViewController
+        } else if viewController.isKindOfClass(EnergyExpenditureViewController) {
             return nil
         }
         
