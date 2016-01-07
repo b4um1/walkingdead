@@ -14,13 +14,13 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
-    let ipAdress = "10.29.17.194"
-    
     @IBOutlet weak var panel_buttons: UIView!
     @IBOutlet weak var b_login: UIButton!
     @IBOutlet weak var tf_username: UITextField!
     @IBOutlet weak var tf_password: UITextField!
 
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = true
@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tapRecognizer)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+
         
     }
     
@@ -53,7 +54,7 @@ class LoginViewController: UIViewController {
             ]
             var login = false
             //http post
-            Alamofire.request(.POST, "http://\(self.ipAdress):8080/at.fhooe.mc.walkingdead/auth/login", parameters: parameters)
+            Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/auth/login", parameters: parameters)
                 .responseJSON { response in
                     if response.result.isSuccess {
                         let json = JSON(response.result.value!)
@@ -72,10 +73,15 @@ class LoginViewController: UIViewController {
             dispatch_after(time, dispatch_get_main_queue()) {
                 SwiftSpinner.hide()
                 if login {
-                    self.navigationController!.pushViewController(self.storyboard!.instantiateViewControllerWithIdentifier("MyPageController") as UIViewController, animated: true)
+                    //self.navigationController!.pushViewController(self.storyboard!.instantiateViewControllerWithIdentifier("MyPageController") as UIViewController, animated: true)
+                    self.performSegueWithIdentifier("showOverview", sender: self)
                 }
-                //self.performSegueWithIdentifier("MyPageController", sender: self)
+                
             }
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("prepare")
     }
 }

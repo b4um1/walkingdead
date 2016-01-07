@@ -24,6 +24,8 @@ class UserRegisterController: UIViewController {
     @IBOutlet weak var tf_heigth: UITextField!
     @IBOutlet weak var switch_fitnesslevel: UISegmentedControl!
 
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var register_successfully = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,35 +92,30 @@ class UserRegisterController: UIViewController {
             "steplength":steplength
         ]
         
-        Alamofire.request(.POST, "http://\(LoginViewController().ipAdress):8080/at.fhooe.mc.walkingdead/auth/createuser", parameters: parameters)
+        Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/auth/createuser", parameters: parameters)
             .responseJSON { response in
                 if response.result.isSuccess {
                     let json = JSON(response.result.value!)
-                    print(json)
-                    if json.isEmpty == false {
-                        print(json.description)
-                        SwiftSpinner.show("Login successfull 💪🏻", animated: true)
+                    print("Result of register: %a",json.description)
+                    if json.description == "true" {
+                        SwiftSpinner.show("Registered successfully 💪🏻", animated: true)
+                        self.register_successfully = true
                     }else{
-                        SwiftSpinner.show("Invalid login 👎🏻", animated: true)
+                        SwiftSpinner.show("User already exits 👎🏻", animated: true)
                     }
                 }
         }
-
         
-        var delay = 2 * Double(NSEC_PER_SEC)
-        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        //if registration was successful, then pop back to login view
+       
+        let delay = 2 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
-            SwiftSpinner.show("Successful - logging in 💪🏻🤘🏻", animated: true)
-            delay = 3 * Double(NSEC_PER_SEC)
-            time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue()) {
-                SwiftSpinner.hide()
-                self.navigationController!.pushViewController(self.storyboard!.instantiateViewControllerWithIdentifier("MyPageController") as UIViewController, animated: true)
-                //self.performSegueWithIdentifier("login", sender: self)
+            SwiftSpinner.hide()
+            if self.register_successfully == true{
+                self.navigationController?.popViewControllerAnimated(true)
             }
-            
         }
-
     }
     
     
