@@ -15,6 +15,8 @@ class MyPageController: UIViewController, UIPageViewControllerDataSource, UIGest
     var controllers : NSMutableArray = []
     var indexValue = 0
 
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +27,19 @@ class MyPageController: UIViewController, UIPageViewControllerDataSource, UIGest
         //loadFromCoreData()
         //if refuelings.count > 2 {
         for i in 0...2 {
-            let controller = storyboard!.instantiateViewControllerWithIdentifier("PageController\(i)") 
+            let controller = storyboard!.instantiateViewControllerWithIdentifier("PageController\(i)")
+            switch i {
+            case 0:
+                (controller as! MainViewController).pageController = self
+                break
+            case 1:
+                (controller as! HeartrateViewController).pageController = self
+                break
+            case 2:
+                (controller as! EnergyExpenditureViewController).pageController = self
+            default:
+                break
+            }
             controllers.addObject(controller)
         }
         
