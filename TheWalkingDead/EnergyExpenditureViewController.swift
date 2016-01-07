@@ -16,6 +16,18 @@ class EnergyExpenditureViewController: UIViewController {
         super.viewDidLoad()
         
         
+        
+        //let VO2max = 0.133 * user.age - (0.005 * user.age * user.age) + (11.403 * 1) + (1.463 * 7) + (9.17 * 1.77) - (0.254 * user.weight) + 34.143
+        
+        /*
+
+        VO2max [ml / min / kg] = (0.133 age) – (0.005*age2) + (11.403 * gender) + (1.463 PA-R) + (9.17 height) – (0.254 body_mass) + 34.143
+        
+        EE = -59.3954 + user.sex * (-36.3781 + 0.271 * user.age + 0.394 * user.weight + 0.404)
+
+        */
+        
+        
         // Do any additional setup after loading the view.
     }
 
