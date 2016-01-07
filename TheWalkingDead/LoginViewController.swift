@@ -14,6 +14,8 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
+    let ipAdress = "10.29.17.194"
+    
     @IBOutlet weak var panel_buttons: UIView!
     @IBOutlet weak var b_login: UIButton!
     @IBOutlet weak var tf_username: UITextField!
@@ -51,7 +53,7 @@ class LoginViewController: UIViewController {
             ]
             var login = false
             //http post
-            Alamofire.request(.POST, "http://10.29.17.241:8080/at.fhooe.mc.walkingdead/auth/login", parameters: parameters)
+            Alamofire.request(.POST, "http://\(self.ipAdress):8080/at.fhooe.mc.walkingdead/auth/login", parameters: parameters)
                 .responseJSON { response in
                     if response.result.isSuccess {
                         let json = JSON(response.result.value!)

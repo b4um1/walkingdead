@@ -45,57 +45,58 @@ class UserRegisterController: UIViewController {
         
         // get all values from input fields, not a fine way, but it works --> time is running
         //sex
-        let sex = String(format: "%d",self.switch_sex.selectedSegmentIndex)
+        let sex = self.switch_sex.selectedSegmentIndex.description
         //height
         var height:String
         if tf_heigth.text!.isEmpty {
-            height = String(format: "%d",0)
+            height = "0"
         }else{
-            height = String(format: "%a",self.tf_heigth.text!)
+            height = self.tf_heigth.text!
         }
         //weight
         var weight:String
         if tf_weight.text!.isEmpty {
-            weight = String(format: "%d",0)
+            weight = "0"
         }else{
-            weight = String(format: "%a",self.tf_weight.text!)
+            weight = self.tf_weight.text!
         }
         //age
         let birthdate = datePicker.date
         print(birthdate)
         let today = NSDate()
         let differenceComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: birthdate, toDate: today, options: NSCalendarOptions(rawValue: 0) )
-        let age = String(format: "%d",differenceComponents.year)
+        let age = differenceComponents.year.description
 
         
         //physical
-        let physical = String(format: "%d",(self.switch_fitnesslevel.selectedSegmentIndex+1))
+        let physical = (self.switch_fitnesslevel.selectedSegmentIndex+1).description
         
         //steplength
         var steplength:String
         if tf_steplength.text!.isEmpty {
-            steplength = String(format: "%d",0)
+            steplength = "0"
         }else{
-            steplength = String(format: "%a",self.tf_steplength.text!)
+            steplength = self.tf_steplength.text!
         }
         
         let parameters = [
             "user":self.tf_username.text!,
             "pass":self.tf_pw1.text!,
             "sex":sex,
-            "heigth":height,
+            "height":height,
             "weight":weight,
             "age":age,
             "physical":physical,
             "steplength":steplength
         ]
         
-        Alamofire.request(.POST, "http://10.29.17.241:8080/at.fhooe.mc.walkingdead/auth/createuser", parameters: parameters)
+        Alamofire.request(.POST, "http://\(LoginViewController().ipAdress):8080/at.fhooe.mc.walkingdead/auth/createuser", parameters: parameters)
             .responseJSON { response in
                 if response.result.isSuccess {
                     let json = JSON(response.result.value!)
                     print(json)
                     if json.isEmpty == false {
+                        print(json.description)
                         SwiftSpinner.show("Login successfull 💪🏻", animated: true)
                     }else{
                         SwiftSpinner.show("Invalid login 👎🏻", animated: true)

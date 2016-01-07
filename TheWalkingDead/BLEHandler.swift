@@ -90,7 +90,7 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
      */
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
     
-        print("didDiscoverPeripheral \(String(peripheral.name))")
+        //print("didDiscoverPeripheral \(String(peripheral.name))")
         
         //if startScanTimestamp.timeIntervalSinceNow > -3 {
         if peripheral.name != nil && devices.contains(String(peripheral.name!)) {
