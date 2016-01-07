@@ -26,6 +26,8 @@ class MainViewController: UIViewController, StepDelegate {
         stepCounter = StepCounter()
         stepCounter!.stepDelegate = self
         
+        //load current steps of user (with id)(maximum/average)
+        //save current steps after stepping 50 steps.
         setUpLayout()
     }
     
@@ -43,10 +45,11 @@ class MainViewController: UIViewController, StepDelegate {
         navigationController?.navigationBarHidden = true
         view_values.layer.cornerRadius = 20
         
-        label_username.text = self.pageController?.user?.name
+        label_username.text = String(format: "Hello, %@!", (self.pageController?.user?.name)!)
         
         addCircleView()
         setupStepsLabel()
+        
     }
 
     override func didReceiveMemoryWarning() {
