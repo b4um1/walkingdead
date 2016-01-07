@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var tf_password: UITextField!
 
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var user:User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,9 @@ class LoginViewController: UIViewController {
                         if json.isEmpty == false {
                             SwiftSpinner.show("Login successfull 💪🏻", animated: true)
                             login = true
+                            
+                            self.user = User(id: json["id"].int!, physicalActivityRating: json["physicalActivityRating"].int!, stepLength: json["stepLength"].int!, age: json["age"].int!, name: json["name"].stringValue, weight: json["weight"].int!, height: json["height"].int!, sex: json["sex"].int!, session: json["session"].stringValue)
+                            
                         }else{
                              SwiftSpinner.show("Invalid login 👎🏻", animated: true)
                         }
@@ -73,7 +77,7 @@ class LoginViewController: UIViewController {
             dispatch_after(time, dispatch_get_main_queue()) {
                 SwiftSpinner.hide()
                 if login {
-                    //self.navigationController!.pushViewController(self.storyboard!.instantiateViewControllerWithIdentifier("MyPageController") as UIViewController, animated: true)
+                    //perform segue to overview
                     self.performSegueWithIdentifier("showOverview", sender: self)
                 }
                 
@@ -82,6 +86,10 @@ class LoginViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("prepare")
+        if segue.identifier == "showOverview" {
+            let mainViewCont: MyPageController = segue.destinationViewController as! MyPageController
+            mainViewCont.user = self.user
+        }
+        
     }
 }

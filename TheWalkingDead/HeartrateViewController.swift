@@ -9,7 +9,9 @@
 import UIKit
 
 class HeartrateViewController: UIViewController, HeartRateDelegate {
-    
+
+    var pageController: MyPageController?
+
     @IBOutlet weak var panel_labels: UIView!
     @IBOutlet weak var l_currentHeartBeat: UILabel!
     @IBOutlet weak var img_heart: UIImageView!

@@ -11,6 +11,7 @@ import UIKit
 class EnergyExpenditureViewController: UIViewController {
 
     @IBOutlet weak var caloriesLabel: UILabel!
+    var pageController: MyPageController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,21 +13,20 @@ class MainViewController: UIViewController, StepDelegate {
     @IBOutlet weak var view_values: UIView!
     @IBOutlet weak var label_stepsHighscore: UILabel!
     @IBOutlet weak var label_stepsAverage: UILabel!
+    @IBOutlet weak var label_username: UILabel!
     var label_currentSteps: UILabel?
     
     var stepCounter: StepCounter?
     var circleView: CircleView?
+    var pageController: MyPageController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        setUpLayout()
         stepCounter = StepCounter()
         stepCounter!.stepDelegate = self
         
-        addCircleView()
-        setupStepsLabel()
+        setUpLayout()
     }
     
     func setupStepsLabel() {
@@ -43,6 +42,11 @@ class MainViewController: UIViewController, StepDelegate {
     func setUpLayout() {
         navigationController?.navigationBarHidden = true
         view_values.layer.cornerRadius = 20
+        
+        label_username.text = self.pageController?.user?.name
+        
+        addCircleView()
+        setupStepsLabel()
     }
 
     override func didReceiveMemoryWarning() {
