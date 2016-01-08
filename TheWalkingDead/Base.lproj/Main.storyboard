@@ -771,11 +771,20 @@
                                     <constraint firstItem="TcL-Wb-mBB" firstAttribute="leading" secondItem="iRx-jY-6Vz" secondAttribute="leading" id="dR8-hn-VcF"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please log in with your username and password. Otherwise you press the &quot;New&quot; Button to register for this application." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wmr-v8-Fx7">
+                                <rect key="frame" x="50" y="355" width="500" height="195"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="deI-HO-Idl" firstAttribute="leading" secondItem="Ep2-Lh-7Qs" secondAttribute="leading" id="1mC-dI-i1e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wmr-v8-Fx7" secondAttribute="trailing" constant="30" id="2Bd-BY-aab"/>
                             <constraint firstItem="jtd-Ey-8Qd" firstAttribute="top" secondItem="Kit-KH-XID" secondAttribute="bottom" constant="20" id="4IA-X5-viX"/>
+                            <constraint firstItem="wmr-v8-Fx7" firstAttribute="leading" secondItem="Ep2-Lh-7Qs" secondAttribute="leadingMargin" constant="30" id="6Vq-7t-qfO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kit-KH-XID" secondAttribute="trailing" constant="235" id="712-j5-Axw"/>
                             <constraint firstItem="deI-HO-Idl" firstAttribute="centerX" secondItem="Ep2-Lh-7Qs" secondAttribute="centerX" id="H0b-oF-Y4Z"/>
                             <constraint firstItem="jtd-Ey-8Qd" firstAttribute="leading" secondItem="Ep2-Lh-7Qs" secondAttribute="leadingMargin" constant="30" id="Hvl-pl-F9N"/>
@@ -787,8 +796,11 @@
                             <constraint firstAttribute="trailing" secondItem="deI-HO-Idl" secondAttribute="trailing" id="Rw4-PH-cKu"/>
                             <constraint firstItem="deI-HO-Idl" firstAttribute="top" secondItem="sqb-dM-QIg" secondAttribute="bottom" constant="-20" id="Sd2-4y-rcp"/>
                             <constraint firstItem="iRx-jY-6Vz" firstAttribute="centerX" secondItem="mco-ub-acT" secondAttribute="centerX" id="UN4-v5-slj"/>
+                            <constraint firstItem="wmr-v8-Fx7" firstAttribute="centerX" secondItem="Ep2-Lh-7Qs" secondAttribute="centerX" id="eCh-ol-VgL"/>
+                            <constraint firstItem="vLk-uX-EBZ" firstAttribute="top" secondItem="wmr-v8-Fx7" secondAttribute="bottom" constant="50" id="f7d-Yy-Ttt"/>
                             <constraint firstItem="mco-ub-acT" firstAttribute="top" secondItem="jtd-Ey-8Qd" secondAttribute="bottom" constant="20" id="ghZ-Iq-4Oj"/>
                             <constraint firstItem="iRx-jY-6Vz" firstAttribute="top" secondItem="mco-ub-acT" secondAttribute="bottom" constant="30" id="jRl-WW-VVS"/>
+                            <constraint firstItem="wmr-v8-Fx7" firstAttribute="top" secondItem="TcL-Wb-mBB" secondAttribute="bottom" constant="20" id="uXK-Y2-4wN"/>
                             <constraint firstItem="vLk-uX-EBZ" firstAttribute="top" secondItem="deI-HO-Idl" secondAttribute="bottom" id="xfh-J3-Op0"/>
                         </constraints>
                         <variation key="default">

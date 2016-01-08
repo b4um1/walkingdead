@@ -11,13 +11,12 @@ import CoreMotion
 
 
 protocol StepDelegate {
-    func onStepMade(counter: Int)
+    func onStepMade()
 }
 class StepCounter {
     
     let manager = CMMotionManager()
     var stepDelegate: StepDelegate?
-    var counter = 0
     
     init() {
         startRecording()
@@ -39,9 +38,7 @@ class StepCounter {
                     let sum = sqrt((x * x) + (y * y) + (z * z))
                     
                     if sum > 1.35 {
-                        self.counter++
-                        self.stepDelegate?.onStepMade(self.counter)
-                        print("step \(self.counter)")
+                        self.stepDelegate?.onStepMade()
                     }
                     // end magic
                 }

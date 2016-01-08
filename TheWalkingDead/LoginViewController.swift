@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var tf_password: UITextField!
 
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let defaults = NSUserDefaults.standardUserDefaults()
     var user:User?
     
     override func viewDidLoad() {
@@ -31,7 +32,16 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tapRecognizer)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-
+    }
+    override func viewWillAppear(animated: Bool) {
+        if let name = defaults.valueForKey("name"){
+            let parameters = [
+                "user":name as! String,
+                "session":defaults.valueForKey("session") as! String
+            ]
+            login(parameters)
+        }
+       
         
     }
     
@@ -44,15 +54,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(sender: AnyObject) {
+        let parameters = [
+            "user":tf_username.text!,
+            "pass":tf_password.text!
+        ]
+        login(parameters)
+    }
+    
+    func login(parameter: [String:String]){
         SwiftSpinner.show("Try to login ...")
-        var delay = 1 * Double(NSEC_PER_SEC)
+        var delay = 0.5 * Double(NSEC_PER_SEC)
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             
-            let parameters = [
-                "user":self.tf_username.text!,
-                "pass":self.tf_password.text!
-            ]
+            let parameters = parameter
             var login = false
             //http post
             Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/auth/login", parameters: parameters)
@@ -60,14 +75,18 @@ class LoginViewController: UIViewController {
                     if response.result.isSuccess {
                         let json = JSON(response.result.value!)
                         print(json)
-                        if json.isEmpty == false {
+                        if json.isEmpty == false && json["name"].stringValue != ""{
                             SwiftSpinner.show("Login successfull 💪🏻", animated: true)
                             login = true
                             
                             self.user = User(id: json["id"].int!, physicalActivityRating: json["physicalActivityRating"].int!, stepLength: json["stepLength"].int!, age: json["age"].int!, name: json["name"].stringValue, weight: json["weight"].int!, height: json["height"].int!, sex: json["sex"].int!, session: json["session"].stringValue)
-                            
+                            //save to userdefaults
+                            self.defaults.setObject(json["name"].stringValue, forKey: "name")
+                            self.defaults.setObject(json["session"].stringValue, forKey: "session")
                         }else{
-                             SwiftSpinner.show("Invalid login 👎🏻", animated: true)
+                            self.defaults.removeObjectForKey("name")
+                            self.defaults.removeObjectForKey("session")
+                            SwiftSpinner.show("Invalid login 👎🏻", animated: true)
                         }
                     }
             }
