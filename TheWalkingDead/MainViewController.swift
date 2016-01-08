@@ -55,6 +55,7 @@ class MainViewController: UIViewController, StepDelegate {
                         self.counter_steps = json["steps"].int!
                         self.label_currentSteps?.text = String(format: "%@ steps", json["steps"].stringValue)
                         self.circleView?.updateCircle(self.counter_steps)
+                        self.circleView?.animateCircle(1)
                     }else{
                         self.counter_steps = 0
                         self.label_currentSteps!.text = "0 steps"
@@ -79,7 +80,7 @@ class MainViewController: UIViewController, StepDelegate {
                     print(json)
                     print(json.isEmpty)
                     if json.isEmpty == false{
-                        self.label_stepsHighscore.text = String(format: "%d Steps", json.int!)
+                        self.label_stepsHighscore.text = String(format: "%d Steps", json["steps"].int!)
                     }else{
                         self.label_stepsHighscore.text = String(format: "%d Steps", 0)
                         SwiftSpinner.show("Loading error 👎🏻", animated: true)
@@ -102,9 +103,9 @@ class MainViewController: UIViewController, StepDelegate {
                     let json = JSON(response.result.value!)
                     print(json)
                     if json.isEmpty == false{
-                        self.label_stepsAverage.text = String(format: "%d Steps", json.int!)
+                        self.label_stepsAverage.text = String(format: "%d Steps", json["steps"].int!)
                     }else{
-                        self.label_stepsAverage.text = String(format: "%d Steps", json.int!)
+                        self.label_stepsAverage.text = String(format: "%d Steps", 0)
                         SwiftSpinner.show("Loading error 👎🏻", animated: true)
                     }
                 }
