@@ -27,13 +27,10 @@ class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupUI()
         calcCalories()
         
-        
         let caloriesTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("calcCalories"), userInfo: nil, repeats: true)
-        
     }
     
     func setupUI(){

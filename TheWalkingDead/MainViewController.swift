@@ -38,6 +38,7 @@ class MainViewController: UIViewController, StepDelegate {
         //save current steps after stepping 50 steps.
         
     }
+    
     func getCurrentSteps(){
         //current
         SwiftSpinner.show("Load current Steps.", animated: true)
@@ -45,6 +46,7 @@ class MainViewController: UIViewController, StepDelegate {
             "user":pageController!.user!.name,
             "session":pageController!.user!.session
         ]
+        
         Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/today", parameters: parameters)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -64,6 +66,7 @@ class MainViewController: UIViewController, StepDelegate {
                 }
         }
     }
+    
     func getMaxSteps(){
         //max
         SwiftSpinner.show("Load max Steps.", animated: true)
@@ -87,6 +90,7 @@ class MainViewController: UIViewController, StepDelegate {
                 SwiftSpinner.hide()
         }
     }
+    
     func getAvgSteps(){
         //avg
         SwiftSpinner.show("Load max Steps.", animated: true)
