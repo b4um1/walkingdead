@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftSpinner
+import SwiftyJSON
 
 class MainViewController: UIViewController, StepDelegate {
 
@@ -14,21 +17,100 @@ class MainViewController: UIViewController, StepDelegate {
     @IBOutlet weak var label_stepsHighscore: UILabel!
     @IBOutlet weak var label_stepsAverage: UILabel!
     @IBOutlet weak var label_username: UILabel!
-    var label_currentSteps: UILabel?
     
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var label_currentSteps: UILabel?
+    var counter_steps = 0
     var stepCounter: StepCounter?
     var circleView: CircleView?
     var pageController: MyPageController?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         stepCounter = StepCounter()
         stepCounter!.stepDelegate = self
+        setUpLayout()
         
         //load current steps of user (with id)(maximum/average)
+        getCurrentSteps()
+        getMaxSteps()
+        getAvgSteps()
         //save current steps after stepping 50 steps.
-        setUpLayout()
+        
+    }
+    func getCurrentSteps(){
+        //current
+        SwiftSpinner.show("Load current Steps.", animated: true)
+        let parameters = [
+            "user":pageController!.user!.name,
+            "session":pageController!.user!.session
+        ]
+        print(parameters)
+        Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/today", parameters: parameters)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let json = JSON(response.result.value!)
+                    print(json)
+                    if json.isEmpty == false{
+                        self.counter_steps = json["steps"].int!
+                        self.label_currentSteps?.text = String(format: "%@ steps", json["steps"].stringValue)
+                        self.circleView?.updateCircle(self.counter_steps)
+                    }else{
+                        self.counter_steps = 0
+                        self.label_currentSteps!.text = "0 steps"
+                        SwiftSpinner.show("Loading error 👎🏻", animated: true)
+                    }
+                    SwiftSpinner.hide()
+                }
+        }
+    }
+    func getMaxSteps(){
+        //max
+        SwiftSpinner.show("Load max Steps.", animated: true)
+        let parameters = [
+            "user":pageController!.user!.name,
+            "session":pageController!.user!.session
+        ]
+        print(parameters)
+        Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/max", parameters: parameters)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let json = JSON(response.result.value!)
+                    print(json)
+                    print(json.isEmpty)
+                    if json.isEmpty == false{
+                        self.label_stepsHighscore.text = String(format: "%d Steps", json.int!)
+                    }else{
+                        self.label_stepsHighscore.text = String(format: "%d Steps", 0)
+                        SwiftSpinner.show("Loading error 👎🏻", animated: true)
+                    }
+                }
+                SwiftSpinner.hide()
+        }
+    }
+    func getAvgSteps(){
+        //avg
+        SwiftSpinner.show("Load max Steps.", animated: true)
+        let parameters = [
+            "user":pageController!.user!.name,
+            "session":pageController!.user!.session
+        ]
+        print(parameters)
+        Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/avg", parameters: parameters)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let json = JSON(response.result.value!)
+                    print(json)
+                    if json.isEmpty == false{
+                        self.label_stepsAverage.text = String(format: "%d Steps", json.int!)
+                    }else{
+                        self.label_stepsAverage.text = String(format: "%d Steps", json.int!)
+                        SwiftSpinner.show("Loading error 👎🏻", animated: true)
+                    }
+                }
+                SwiftSpinner.hide()
+        }
+
     }
     
     func setupStepsLabel() {
@@ -37,7 +119,6 @@ class MainViewController: UIViewController, StepDelegate {
         label_currentSteps!.textAlignment = NSTextAlignment.Center
         label_currentSteps!.textColor = UIColor.whiteColor()
         label_currentSteps!.font = UIFont(name: label_currentSteps!.font!.fontName, size: 23)
-        label_currentSteps!.text = "0 steps"
         self.view.addSubview(label_currentSteps!)
     }
     
@@ -57,9 +138,10 @@ class MainViewController: UIViewController, StepDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    func onStepMade(counter: Int) {
-        label_currentSteps!.text = "\(counter) steps"
-        circleView?.updateCircle(counter)
+    func onStepMade() {
+        self.counter_steps++
+        label_currentSteps!.text = "\(counter_steps) steps"
+        circleView?.updateCircle(self.counter_steps)
     }
     
     func addCircleView() {

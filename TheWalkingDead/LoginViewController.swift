@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
                     if response.result.isSuccess {
                         let json = JSON(response.result.value!)
                         print(json)
-                        if json.isEmpty == false {
+                        if json.isEmpty == false && json["name"].stringValue != ""{
                             SwiftSpinner.show("Login successfull 💪🏻", animated: true)
                             login = true
                             
@@ -84,6 +84,8 @@ class LoginViewController: UIViewController {
                             self.defaults.setObject(json["name"].stringValue, forKey: "name")
                             self.defaults.setObject(json["session"].stringValue, forKey: "session")
                         }else{
+                            self.defaults.removeObjectForKey("name")
+                            self.defaults.removeObjectForKey("session")
                             SwiftSpinner.show("Invalid login 👎🏻", animated: true)
                         }
                     }
