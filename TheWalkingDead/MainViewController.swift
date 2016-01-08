@@ -45,7 +45,6 @@ class MainViewController: UIViewController, StepDelegate {
             "user":pageController!.user!.name,
             "session":pageController!.user!.session
         ]
-        print(parameters)
         Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/today", parameters: parameters)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -72,7 +71,6 @@ class MainViewController: UIViewController, StepDelegate {
             "user":pageController!.user!.name,
             "session":pageController!.user!.session
         ]
-        print(parameters)
         Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/max", parameters: parameters)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -96,7 +94,6 @@ class MainViewController: UIViewController, StepDelegate {
             "user":pageController!.user!.name,
             "session":pageController!.user!.session
         ]
-        print(parameters)
         Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/avg", parameters: parameters)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -108,6 +105,25 @@ class MainViewController: UIViewController, StepDelegate {
                         self.label_stepsAverage.text = String(format: "%d Steps", 0)
                         SwiftSpinner.show("Loading error 👎🏻", animated: true)
                     }
+                }
+                SwiftSpinner.hide()
+        }
+
+    }
+    func saveSteps(){
+        //save
+        SwiftSpinner.show("Save Steps.", animated: true)
+        let parameters = [
+            "user":pageController!.user!.name,
+            "session":pageController!.user!.session,
+            "steps":"\(self.counter_steps)"
+        ]
+        Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/create", parameters: parameters)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let json = JSON(response.result.value!)
+                    print(json)
+                    print("savedsteps")
                 }
                 SwiftSpinner.hide()
         }
@@ -143,6 +159,9 @@ class MainViewController: UIViewController, StepDelegate {
         self.counter_steps++
         label_currentSteps!.text = "\(counter_steps) steps"
         circleView?.updateCircle(self.counter_steps)
+        if self.counter_steps%10 == 0 {
+            saveSteps()
+        }
     }
     
     func addCircleView() {
