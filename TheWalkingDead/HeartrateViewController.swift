@@ -30,6 +30,7 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     var maxBeat = 70
     var minBeat = 70
     let shrinkFactor = CGFloat(2.0 / 3)
+    
     var expandFactor: CGFloat {
         return 1.0 / shrinkFactor
     }
