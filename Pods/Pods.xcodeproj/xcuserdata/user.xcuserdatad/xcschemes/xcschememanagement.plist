@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>LiquidLoader-LiquidLoader.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>LiquidLoader.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-TheWalkingDead.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -27,12 +37,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>054283BF4A5539B43547869E149024E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>25D6E6718FA5660074AB3981840C0A6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2A1E3163E7F9995A21927118ED99356A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5ECE6BE6ADBBCA55D9CB76A159D77BCE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9EAD3DB630AD617BC143FF8EF89DB208</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CA4C677F7DA40E6B06A4AE93152F2C02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED45131C63421FAE9C0F03141C78EF71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
