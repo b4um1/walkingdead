@@ -14,14 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var bleHandler: BLEHandler?
-    let ipAdress = "10.29.17.194"
+    let ipAdress = "10.29.17.23"
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
         
         bleHandler = BLEHandler()   // start ranging BLE devices
         
