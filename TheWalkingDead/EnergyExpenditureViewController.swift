@@ -18,6 +18,7 @@ class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
     @IBOutlet weak var averageCaloriesLabel: UILabel!
     @IBOutlet weak var maxCaloriesLabel: UILabel!
     
+    @IBOutlet weak var panel_labels: UIView!
     var pageController: MyPageController?
     var totalCaloriesCounter = 0.0
     
@@ -26,11 +27,17 @@ class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        setupUI()
         calcCalories()
         
         
         let caloriesTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("calcCalories"), userInfo: nil, repeats: true)
         
+    }
+    
+    func setupUI(){
+        panel_labels.layer.cornerRadius = 20
     }
     
     func updateHeartReate(bpm: Int) {
