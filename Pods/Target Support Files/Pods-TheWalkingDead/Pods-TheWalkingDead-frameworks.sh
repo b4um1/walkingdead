@@ -85,13 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TheWalkingDead/Alamofire.framework"
-  install_framework "Pods-TheWalkingDead/LiquidLoader.framework"
   install_framework "Pods-TheWalkingDead/SwiftSpinner.framework"
   install_framework "Pods-TheWalkingDead/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-TheWalkingDead/Alamofire.framework"
-  install_framework "Pods-TheWalkingDead/LiquidLoader.framework"
   install_framework "Pods-TheWalkingDead/SwiftSpinner.framework"
   install_framework "Pods-TheWalkingDead/SwiftyJSON.framework"
 fi
