@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C5FB42BD01DB78200D119B07'
-               BlueprintName = 'Pods-TheWalkingDead'
+               BlueprintIdentifier = 'D9E16A2F9BCB4302F2DACC9B'
+               BlueprintName = 'SwiftLoader'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_TheWalkingDead.framework'>
+               BuildableName = 'SwiftLoader.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

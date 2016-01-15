@@ -25,6 +25,7 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     let devices = ["TICKR RUN 381D"]
     //let devices = ["RHYTHM+"]
+    //let devices = ["Wahoo HRM V1.7"]
     
     let heartRateServiceUUID: [CBUUID] = [CBUUID(string: "2A37")]
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -64,7 +65,7 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             print("Start Scanning")
             
             
-            //centralManager!.scanForPeripheralsWithServices(nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(bool: true)])
+            centralManager!.scanForPeripheralsWithServices(nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(bool: true)])
             
             /*
             if !peripheralList.isEmpty {

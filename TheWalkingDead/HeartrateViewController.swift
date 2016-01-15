@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftLoader
 
 class HeartrateViewController: UIViewController, HeartRateDelegate {
 
@@ -26,10 +27,11 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var beats = [Int]()
-    var currentbeat = 70
+    var currentbeat = 60
     var maxBeat = 70
     var minBeat = 70
     let shrinkFactor = CGFloat(2.0 / 3)
+    var beatstartet = false
     
     var expandFactor: CGFloat {
         return 1.0 / shrinkFactor
@@ -43,6 +45,8 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         super.viewDidLoad()
         appDelegate.bleHandler!.heartRateDelegate = self
         setupUI()
+
+        SwiftLoader.show(title: "Searching for device", animated: true)
     }
     
         
@@ -53,7 +57,7 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     
     override func viewDidAppear(animated: Bool) {
         beat()
-        updateAverageBeats(calcAverageBeats(0))
+        //updateAverageBeats(calcAverageBeats(0))
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +86,8 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     }
     
     func updateHeartReate(bpm: Int) {
+        SwiftLoader.hide()
+        
         currentbeat = bpm
         l_currentHeartBeat.text = bpm.description
         
