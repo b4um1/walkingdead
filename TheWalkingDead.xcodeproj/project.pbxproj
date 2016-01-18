@@ -71,6 +71,7 @@
 		E815FCCF1C1193020066C948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8AC031D1C15EDFF00E535EE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E8B432B91C11B095005D8FCD /* UserRegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterController.swift; sourceTree = "<group>"; };
+		E8B7AD9E1C4CDA840023DC95 /* TheWalkingDead-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheWalkingDead-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +120,7 @@
 		E815FC9E1C1193010066C948 = {
 			isa = PBXGroup;
 			children = (
+				E8B7AD9E1C4CDA840023DC95 /* TheWalkingDead-Bridging-Header.h */,
 				E815FCA91C1193010066C948 /* TheWalkingDead */,
 				E815FCC11C1193010066C948 /* TheWalkingDeadTests */,
 				E815FCCC1C1193020066C948 /* TheWalkingDeadUITests */,
@@ -554,6 +556,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhhagenberg.TheWalkingDead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mariobaumgartner/Development/Development_Swift/TheWalkingDead_Remote/TheWalkingDead-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -566,6 +569,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhhagenberg.TheWalkingDead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mariobaumgartner/Development/Development_Swift/TheWalkingDead_Remote/TheWalkingDead-Bridging-Header.h";
 			};
 			name = Release;
 		};
