@@ -43,7 +43,7 @@ class GPSHandler: NSObject, CLLocationManagerDelegate {
             .responseJSON { response in
                 
                 let json = JSON(response.result.value!)
-                print(json)
+                //print(json)
                 if json.isEmpty == false {
                     let elevation = json["results",0,"elevation"]
                     self.elevationDelegate?.updateElevation(elevation.doubleValue)

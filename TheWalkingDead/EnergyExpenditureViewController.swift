@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
+class EnergyExpenditureViewController: UIViewController, HeartRateDelegate, ElevationDelegate {
 
     @IBOutlet weak var caloriesLabel: UILabel!
     
@@ -18,18 +18,22 @@ class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
     @IBOutlet weak var averageCaloriesLabel: UILabel!
     @IBOutlet weak var maxCaloriesLabel: UILabel!
     
+    @IBOutlet weak var altitudeLabel: UILabel!
     @IBOutlet weak var panel_labels: UIView!
     var pageController: MyPageController?
     var totalCaloriesCounter = 0.0
     
     var currentHeartRate = 0
 
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         calcCalories()
+        
+        appDelegate.gpsHandler?.elevationDelegate = self
         
         let caloriesTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("calcCalories"), userInfo: nil, repeats: true)
     }
@@ -40,6 +44,10 @@ class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
     
     func updateHeartReate(bpm: Int) {
         currentHeartRate = bpm
+    }
+    
+    func updateElevation(elevation: Double) {
+        altitudeLabel.text = "\(Double(round(10*elevation)/10).description) m"
     }
     
     func calcCalories() {
