@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>SwiftLoader.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>SwiftSpinner.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -52,7 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>40895F438D48078391143A8012721D7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4356565E8BC78A9D5E1AB7201CB7C142</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9159C7CA6BF7650626B70B65BC5CE114</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>941D8BCF5C5944A010A69C628E7A98B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9EAD3DB630AD617BC143FF8EF89DB208</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1A387C7B4819CE0D6FE03728000B55B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

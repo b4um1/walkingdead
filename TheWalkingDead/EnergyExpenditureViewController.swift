@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
+class EnergyExpenditureViewController: UIViewController, HeartRateDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var caloriesLabel: UILabel!
     
@@ -24,13 +25,23 @@ class EnergyExpenditureViewController: UIViewController, HeartRateDelegate {
     
     var currentHeartRate = 0
     
+    var locationManager:CLLocationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         calcCalories()
         
+        self.locationManager.delegate = self
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
         let caloriesTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: Selector("calcCalories"), userInfo: nil, repeats: true)
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations.last)
     }
     
     func setupUI(){

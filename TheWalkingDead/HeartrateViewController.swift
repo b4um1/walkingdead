@@ -49,11 +49,7 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         SwiftLoader.show(title: "Searching for device", animated: true)
     }
     
-        
-        // Do any additional setup after loading the view.
-
-    
-
+    // Do any additional setup after loading the view.
     
     override func viewDidAppear(animated: Bool) {
         beat()
