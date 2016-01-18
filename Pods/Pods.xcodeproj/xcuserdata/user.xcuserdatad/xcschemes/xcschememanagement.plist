@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>MRProgress.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Pods-TheWalkingDead.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -57,6 +62,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>357E0A529A2DDD1E4E01B7B33CCF219E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40895F438D48078391143A8012721D7F</key>
 		<dict>
 			<key>primary</key>
@@ -82,6 +92,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8F00B9924A2D4FA526089F54D18F0ADE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9121422613DB61C4E459B70BAB8201CC</key>
 		<dict>
 			<key>primary</key>
@@ -93,6 +108,11 @@
 			<true/>
 		</dict>
 		<key>941D8BCF5C5944A010A69C628E7A98B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9CAAB2A1855182D992E2945796B03B4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +132,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DD024F19F8A43C62FB6612ADD9BD18C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>ED45131C63421FAE9C0F03141C78EF71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC063A997F5AD5A7A3F91010CDDA22AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
