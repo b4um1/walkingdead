@@ -52,7 +52,12 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         
         
         MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Connecting to device", mode: MRProgressOverlayViewMode.Indeterminate, animated: true)
-
+    }
+    
+    // Do any additional setup after loading the view.
+    
+    override func viewDidAppear(animated: Bool) {
+        beat()
     }
 
     override func didReceiveMemoryWarning() {
