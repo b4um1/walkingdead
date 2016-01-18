@@ -17,6 +17,8 @@ class MainViewController: UIViewController, StepDelegate {
     @IBOutlet weak var label_stepsHighscore: UILabel!
     @IBOutlet weak var label_stepsAverage: UILabel!
     @IBOutlet weak var label_username: UILabel!
+    @IBOutlet weak var label_distance: UILabel!
+    @IBOutlet weak var label_speed: UILabel!
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var label_currentSteps: UILabel?
@@ -54,6 +56,7 @@ class MainViewController: UIViewController, StepDelegate {
                     print(json)
                     if json.isEmpty == false{
                         self.counter_steps = json["steps"].int!
+                        self.label_distance.text = "\(self.calculateDistance(self.counter_steps, steplengthInCm: self.pageController!.user!.stepLength)) m"
                         self.label_currentSteps?.text = String(format: "%@ steps", json["steps"].stringValue)
                         self.circleView?.updateCircle(self.counter_steps)
                         self.circleView?.animateCircle(1)
@@ -65,6 +68,11 @@ class MainViewController: UIViewController, StepDelegate {
                     SwiftSpinner.hide()
                 }
         }
+    }
+    func calculateDistance(steps: Int,steplengthInCm: Int) -> Double {
+        let distance = (Double(steplengthInCm)/100) * Double(steps)
+        //print("Calculating distance steps: \(steps) steplength: \(steplengthInCm) DISTANCE: \(distance)")
+        return distance
     }
     
     func getMaxSteps(){
@@ -121,6 +129,7 @@ class MainViewController: UIViewController, StepDelegate {
             "user":pageController!.user!.name,
             "session":pageController!.user!.session,
             "steps":"\(self.counter_steps)"
+            //"steps":"6230"
         ]
         Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/create", parameters: parameters)
             .responseJSON { response in
@@ -139,7 +148,7 @@ class MainViewController: UIViewController, StepDelegate {
         label_currentSteps!.center = CGPointMake((circleView?.center.x)!, (circleView?.center.y)!)
         label_currentSteps!.textAlignment = NSTextAlignment.Center
         label_currentSteps!.textColor = UIColor.whiteColor()
-        label_currentSteps!.font = UIFont(name: label_currentSteps!.font!.fontName, size: 23)
+        label_currentSteps!.font = UIFont(name: "System Thin", size: 23)
         self.view.addSubview(label_currentSteps!)
     }
     
@@ -163,6 +172,7 @@ class MainViewController: UIViewController, StepDelegate {
         self.counter_steps++
         label_currentSteps!.text = "\(counter_steps) steps"
         circleView?.updateCircle(self.counter_steps)
+        self.label_distance.text = "\(self.calculateDistance(self.counter_steps, steplengthInCm: self.pageController!.user!.stepLength)) m"
         if self.counter_steps%10 == 0 {
             saveSteps()
         }

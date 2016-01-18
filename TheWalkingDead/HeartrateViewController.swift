@@ -31,10 +31,11 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     
     var beats = [Int]()
     var currentbeat = 60
-    var maxBeat = 70
-    var minBeat = 70
+    var maxBeat = 0
+    var minBeat = 200
     let shrinkFactor = CGFloat(2.0 / 3)
     var beatstartet = false
+    var activityIndicatorShown = true
     
     var expandFactor: CGFloat {
         return 1.0 / shrinkFactor
@@ -51,18 +52,7 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         
         
         MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Connecting to device", mode: MRProgressOverlayViewMode.Indeterminate, animated: true)
-        //SwiftLoader.show(title: "Searching for device", animated: true)
-    }
-    
-        
-        // Do any additional setup after loading the view.
 
-    
-
-    
-    override func viewDidAppear(animated: Bool) {
-        beat()
-        //updateAverageBeats(calcAverageBeats(0))
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,7 +81,10 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     }
     
     func updateHeartReate(bpm: Int) {
-        SwiftLoader.hide()
+        if activityIndicatorShown {
+            activityIndicatorShown = false
+            MRProgressOverlayView.dismissOverlayForView(self.view, animated: true)
+        }
         
         currentbeat = bpm
         l_currentHeartBeat.text = bpm.description
