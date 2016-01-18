@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE343C231C3E9A0F00F4DDEF /* EnergyExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE343C221C3E9A0F00F4DDEF /* EnergyExpenditureViewController.swift */; };
 		CE343C251C3E9DF000F4DDEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE343C241C3E9DF000F4DDEF /* User.swift */; };
+		CE7E73781C4CE22D008D59EF /* GPSHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E73771C4CE22D008D59EF /* GPSHandler.swift */; };
 		CEAFF6971C1971430047F69D /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF6961C1971430047F69D /* MyPageController.swift */; };
 		CEAFF6991C1977C80047F69D /* HeartrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF6981C1977C80047F69D /* HeartrateViewController.swift */; };
 		CEAFF69B1C1981F20047F69D /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAFF69A1C1981F20047F69D /* BLEHandler.swift */; };
@@ -49,6 +50,7 @@
 		814C30AA36597FD76F078AB0 /* Pods_TheWalkingDead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheWalkingDead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE343C221C3E9A0F00F4DDEF /* EnergyExpenditureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyExpenditureViewController.swift; sourceTree = "<group>"; };
 		CE343C241C3E9DF000F4DDEF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE7E73771C4CE22D008D59EF /* GPSHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSHandler.swift; sourceTree = "<group>"; };
 		CEAFF6961C1971430047F69D /* MyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
 		CEAFF6981C1977C80047F69D /* HeartrateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartrateViewController.swift; sourceTree = "<group>"; };
 		CEAFF69A1C1981F20047F69D /* BLEHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				CEAFF6961C1971430047F69D /* MyPageController.swift */,
 				CEAFF69A1C1981F20047F69D /* BLEHandler.swift */,
 				CE343C241C3E9DF000F4DDEF /* User.swift */,
+				CE7E73771C4CE22D008D59EF /* GPSHandler.swift */,
 			);
 			path = TheWalkingDead;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				CEAFF6991C1977C80047F69D /* HeartrateViewController.swift in Sources */,
 				E8AC031E1C15EDFF00E535EE /* LoginViewController.swift in Sources */,
 				E815FCB31C1193010066C948 /* TheWalkingDead.xcdatamodeld in Sources */,
+				CE7E73781C4CE22D008D59EF /* GPSHandler.swift in Sources */,
 				CE343C251C3E9DF000F4DDEF /* User.swift in Sources */,
 				E815FCAD1C1193010066C948 /* MainViewController.swift in Sources */,
 				E815FCAB1C1193010066C948 /* AppDelegate.swift in Sources */,
@@ -556,7 +560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhhagenberg.TheWalkingDead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mariobaumgartner/Development/Development_Swift/TheWalkingDead_Remote/TheWalkingDead-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/dev/WalkingDead/TheWalkingDead-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -569,7 +573,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhhagenberg.TheWalkingDead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mariobaumgartner/Development/Development_Swift/TheWalkingDead_Remote/TheWalkingDead-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/dev/WalkingDead/TheWalkingDead-Bridging-Header.h";
 			};
 			name = Release;
 		};

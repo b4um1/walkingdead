@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var bleHandler: BLEHandler?
     let ipAdress = "193.170.132.200"
+    var gpsHandler:GPSHandler?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         bleHandler = BLEHandler()   // start ranging BLE devices
+        gpsHandler = GPSHandler()
         
         return true
     }
