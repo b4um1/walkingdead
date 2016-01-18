@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftLoader
+import MRProgress
 
 class HeartrateViewController: UIViewController, HeartRateDelegate {
 
@@ -25,6 +26,8 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     var heartRateDelegate: HeartRateDelegate?
     var bleHandler = BLEHandler()
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+   // let mrprogess = Mr
     
     var beats = [Int]()
     var currentbeat = 60
@@ -45,8 +48,10 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
         super.viewDidLoad()
         appDelegate.bleHandler!.heartRateDelegate = self
         setupUI()
-
-        SwiftLoader.show(title: "Searching for device", animated: true)
+        
+        
+        MRProgressOverlayView.showOverlayAddedTo(self.view, title: "Connecting to device", mode: MRProgressOverlayViewMode.Indeterminate, animated: true)
+        //SwiftLoader.show(title: "Searching for device", animated: true)
     }
     
     // Do any additional setup after loading the view.

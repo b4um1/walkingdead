@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MRProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TheWalkingDead.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>40895F438D48078391143A8012721D7F</key>
+		<key>357E0A529A2DDD1E4E01B7B33CCF219E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4356565E8BC78A9D5E1AB7201CB7C142</key>
+		<key>8F00B9924A2D4FA526089F54D18F0ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9159C7CA6BF7650626B70B65BC5CE114</key>
+		<key>9CAAB2A1855182D992E2945796B03B4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1A387C7B4819CE0D6FE03728000B55B</key>
+		<key>DD024F19F8A43C62FB6612ADD9BD18C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC063A997F5AD5A7A3F91010CDDA22AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
