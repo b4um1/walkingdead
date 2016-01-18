@@ -60,6 +60,7 @@ class MainViewController: UIViewController, StepDelegate {
                         self.label_currentSteps?.text = String(format: "%@ steps", json["steps"].stringValue)
                         self.circleView?.updateCircle(self.counter_steps)
                         self.circleView?.animateCircle(1)
+                        self.calculateSpeed(self.counter_steps)
                     }else{
                         self.counter_steps = 0
                         self.label_currentSteps!.text = "0 steps"
@@ -73,6 +74,18 @@ class MainViewController: UIViewController, StepDelegate {
         let distance = (Double(steplengthInCm)/100) * Double(steps)
         //print("Calculating distance steps: \(steps) steplength: \(steplengthInCm) DISTANCE: \(distance)")
         return distance
+    }
+    
+    func calculateSpeed(currentSteps: Int) {
+        let delay = 1 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            let differenceStepsInOneSecond = self.counter_steps - currentSteps //steps made in one second
+            print("Steps in one second \(differenceStepsInOneSecond)")
+            let distanceInOneSecond = self.calculateDistance(differenceStepsInOneSecond, steplengthInCm: self.pageController!.user!.stepLength)
+            self.label_speed.text = "\(distanceInOneSecond) m/s"
+            self.calculateSpeed(self.counter_steps)
+        }
     }
     
     func getMaxSteps(){
@@ -124,12 +137,11 @@ class MainViewController: UIViewController, StepDelegate {
     }
     func saveSteps(){
         //save
-        SwiftSpinner.show("Save Steps.", animated: true)
+        //SwiftSpinner.show("Save Steps.", animated: true)
         let parameters = [
             "user":pageController!.user!.name,
             "session":pageController!.user!.session,
             "steps":"\(self.counter_steps)"
-            //"steps":"6230"
         ]
         Alamofire.request(.POST, "http://\(self.appDelegate.ipAdress):8080/at.fhooe.mc.walkingdead/step/create", parameters: parameters)
             .responseJSON { response in
@@ -138,7 +150,7 @@ class MainViewController: UIViewController, StepDelegate {
                     print(json)
                     print("savedsteps")
                 }
-                SwiftSpinner.hide()
+                //SwiftSpinner.hide()
         }
 
     }
@@ -173,7 +185,7 @@ class MainViewController: UIViewController, StepDelegate {
         label_currentSteps!.text = "\(counter_steps) steps"
         circleView?.updateCircle(self.counter_steps)
         self.label_distance.text = "\(self.calculateDistance(self.counter_steps, steplengthInCm: self.pageController!.user!.stepLength)) m"
-        if self.counter_steps%10 == 0 {
+        if self.counter_steps%20 == 0 {
             saveSteps()
         }
     }
