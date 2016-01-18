@@ -560,7 +560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhhagenberg.TheWalkingDead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/dev/WalkingDead/TheWalkingDead-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mariobaumgartner/Development/Development_Swift/TheWalkingDead_Remote/TheWalkingDead-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -573,7 +573,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = at.fhhagenberg.TheWalkingDead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/dev/WalkingDead/TheWalkingDead-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mariobaumgartner/Development/Development_Swift/TheWalkingDead_Remote/TheWalkingDead-Bridging-Header.h";
 			};
 			name = Release;
 		};
