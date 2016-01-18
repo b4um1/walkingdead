@@ -7,6 +7,9 @@ target 'TheWalkingDead' do
 
 pod 'Alamofire', '~> 3.0'
 pod "SwiftSpinner"
+pod 'SwiftyJSON'
+pod 'SwiftLoader'
+pod 'MRProgress'
 
 end
 

@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MRProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TheWalkingDead.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftLoader.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,20 +29,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>357E0A529A2DDD1E4E01B7B33CCF219E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60CB21CB1884146C2CD67BF0C3BA471B</key>
+		<key>8F00B9924A2D4FA526089F54D18F0ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>941D8BCF5C5944A010A69C628E7A98B6</key>
+		<key>9CAAB2A1855182D992E2945796B03B4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD024F19F8A43C62FB6612ADD9BD18C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC063A997F5AD5A7A3F91010CDDA22AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

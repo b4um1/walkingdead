@@ -11,7 +11,7 @@ import UIKit
 class CircleView: UIView {
 
     var circleLayer: CAShapeLayer!
-    let maxSteps = 100.0
+    let maxSteps = 7000.0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
