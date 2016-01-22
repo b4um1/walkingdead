@@ -78,7 +78,6 @@ class LoginViewController: UIViewController {
                         if json.isEmpty == false && json["name"].stringValue != ""{
                             SwiftSpinner.show("Login successfull 💪🏻", animated: true)
                             login = true
-                            
                             self.user = User(id: json["id"].int!, physicalActivityRating: json["physicalActivityRating"].int!, stepLength: json["stepLength"].int!, age: json["age"].int!, name: json["name"].stringValue, weight: json["weight"].int!, height: json["height"].int!, sex: json["sex"].int!, session: json["session"].stringValue)
                             //save to userdefaults
                             self.defaults.setObject(json["name"].stringValue, forKey: "name")
@@ -94,6 +93,7 @@ class LoginViewController: UIViewController {
             delay = 0.5 * Double(NSEC_PER_SEC)
             time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
+                print("hide spinner")
                 SwiftSpinner.hide()
                 if login {
                     //perform segue to overview

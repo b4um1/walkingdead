@@ -33,6 +33,8 @@ class MainViewController: UIViewController, StepDelegate {
         stepCounter!.stepDelegate = self
         setUpLayout()
         
+        //start speed calculator
+        self.calculateSpeed(self.counter_steps)
         //load current steps of user (with id)(maximum/average)
         getCurrentSteps()
         getMaxSteps()
@@ -81,9 +83,9 @@ class MainViewController: UIViewController, StepDelegate {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             let differenceStepsInOneSecond = self.counter_steps - currentSteps //steps made in one second
-            print("Steps in one second \(differenceStepsInOneSecond)")
+           // print("Steps in one second \(differenceStepsInOneSecond)")
             let distanceInOneSecond = self.calculateDistance(differenceStepsInOneSecond, steplengthInCm: self.pageController!.user!.stepLength)
-            self.label_speed.text = "\(distanceInOneSecond) m/s"
+            self.label_speed.text = "\(Double(round(10*distanceInOneSecond)/10)) m/s"
             self.calculateSpeed(self.counter_steps)
         }
     }

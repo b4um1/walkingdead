@@ -103,9 +103,11 @@ class HeartrateViewController: UIViewController, HeartRateDelegate {
     
     func updateMaxMinBeat(beat: Int){
         if beat > maxBeat {
+            maxBeat = beat
             l_maxbeat.text = NSString(format: "%d BPM", beat) as String
         }
         if beat < minBeat {
+            minBeat = beat
             l_minbeat.text = NSString(format: "%d BPM", beat) as String
         }
     }
